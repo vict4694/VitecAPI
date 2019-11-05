@@ -12,9 +12,9 @@ namespace TodoApi.Controllers
     [ApiController]
     public class TodoController : ControllerBase
     {
-        private readonly DbContext _context;
+        private readonly DBContext _context;
 
-        public TodoController(DbContext context)
+        public TodoController(DBContext context)
         {
             _context = context;
 
@@ -22,7 +22,7 @@ namespace TodoApi.Controllers
             {
                 // Create a new TodoItem if collection is empty,
                 // which means you can't delete all TodoItems.
-                _context.TodoItems.Add(new TodoItem { Name = "Item1" });
+                _context.TodoItems.Add(new TodoItem { Title = "Item1" });
                 _context.SaveChanges();
             }
         }
